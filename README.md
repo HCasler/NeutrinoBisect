@@ -6,7 +6,7 @@ NeutrinoBisect is a Python library for reconstructing the (anti-)neutrino moment
 
 This library allows the user to calcuate the final (anti-)neutrino momenta in the following interaction:
 
-$e^-e^+ \rightarrow t\bar{t} \rightarrow W^+ W^- b \bar{b} \rightarrow {\ell}^+ {\ell}^- \nu \bar{\nu} b \bar{b}$
+![e+e- -> tt~ -> W+W-b b~ -> l+l-nu nu~b b~](https://github.com/HCasler/NeutrinoBisect/blob/master/equation.png)
 
 It assumes the user knows the center-of-mass energy, and the final momenta of the leptons and (anti-)bottom quarks.
 
