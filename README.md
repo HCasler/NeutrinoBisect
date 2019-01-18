@@ -30,7 +30,7 @@ solver = NuSolver(inData)
 solutions = solver.findAllSolutions()
 
 for solution in solutions:
-    print soltuion
+    print solution
 ```
 Should result in:
 ```
@@ -58,7 +58,7 @@ The bottom and anti-bottom three-momenta (in GeV/c) are contained in **bAntiBP**
 inData.bAntiBP = [np.array([ 102.97248438,  158.01606259,  -83.55812619]), np.array([ 31.84552299, -42.69183896,  47.34163184])]
 ```
 
-The **NuSolver** class performs the calculation:
+The **NuSolver** class performs the calculation. It should be initialized with an instance of EventInput containing the known info about the problem:
 ```
 solver = NuSolver(inData)
 ```
