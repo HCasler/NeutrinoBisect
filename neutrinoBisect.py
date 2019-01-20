@@ -149,7 +149,7 @@ class NuSolver(object):
         if not (isinstance(p2Vec[0], complex) or isinstance(p2Vec[1], complex)) and not (math.isnan(p2Vec[0]) or math.isnan(p2Vec[1])):
             p5Vec = self.p5VecFromP2Vec(p2Vec)
             funcVal = self.func(p2z, oneOrTwo, doComplex=False)
-            out = {'nu': p2Vec, 'nu~': p5Vec, 'func': funcVal}
+            out = {'nu': p2Vec, 'nu~': p5Vec}
         else:
             raise RuntimeError("Neutrino momentum contains complex or null values")
         return out
