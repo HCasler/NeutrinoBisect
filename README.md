@@ -22,8 +22,8 @@ from neutrinoBisect import EventInput, NuSolver
 
 inData = EventInput()
 inData.totalEnergy = 1000.0
-inData.muP = np.array([-55.41906268 -63.96540519  36.03672536])
-inData.antiMuP = np.array([ -26.72478036  198.19401383 -114.33669775])
+inData.muP = np.array([-55.41906268, -63.96540519,  36.03672536])
+inData.antiMuP = np.array([ -26.72478036,  198.19401383, -114.33669775])
 inData.bAntiBP = [np.array([ 102.97248438,  158.01606259,  -83.55812619]), np.array([ 31.84552299, -42.69183896,  47.34163184])]
 
 solver = NuSolver(inData)
@@ -48,12 +48,12 @@ inData = EventInput()
 ```
 inData.totalEnergy = 1000.0
 ```
-The lepton and anti-lepton final three-momenta (in GeV/c) are contained in **muP** and **antiMuP**.
+The lepton and anti-lepton final three-momenta (in GeV/c) are contained in **muP** and **antiMuP** as numpy arrays.
 ```
-inData.muP = np.array([-55.41906268 -63.96540519  36.03672536])
-inData.antiMuP = np.array([ -26.72478036  198.19401383 -114.33669775])
+inData.muP = np.array([-55.41906268, -63.96540519,  36.03672536])
+inData.antiMuP = np.array([ -26.72478036,  198.19401383, -114.33669775])
 ```
-The bottom and anti-bottom three-momenta (in GeV/c) are contained in **bAntiBP**. They are placed together like this because the code assumes that the user does not know the charges of the (anti-)bottom jets.
+The bottom and anti-bottom three-momenta (in GeV/c) are contained in **bAntiBP**, which is a list of numpy arrays. They are placed together like this because the code assumes that the user does not know the charges of the (anti-)bottom jets.
 ```
 inData.bAntiBP = [np.array([ 102.97248438,  158.01606259,  -83.55812619]), np.array([ 31.84552299, -42.69183896,  47.34163184])]
 ```
