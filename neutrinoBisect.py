@@ -178,7 +178,7 @@ class NuSolver(object):
                 soln = None
             return soln
         return None
-    #TODO: run "best" with this and without, see if any grazed solutions make it through
+
     # finds a minimum of the function. Assumes you're already kinf od near the minimum to begin with
     def findGrazedSolution(self, startingMin, fMid, smidgeSize, oneOrTwo, maxIters=15):
         # Get a value to the left, and a value to the right.
