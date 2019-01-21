@@ -149,10 +149,17 @@ class NuSolver(object):
         if not (isinstance(p2Vec[0], complex) or isinstance(p2Vec[1], complex)) and not (math.isnan(p2Vec[0]) or math.isnan(p2Vec[1])):
             p5Vec = self.p5VecFromP2Vec(p2Vec)
             funcVal = self.func(p2z, oneOrTwo, doComplex=False)
-            out = {'nu': p2Vec, 'nu~': p5Vec}
+            out = {'nu': p2Vec, 'nu~': p5Vec, 'func': funcVal}
         else:
             raise RuntimeError("Neutrino momentum contains complex or null values")
         return out
+    
+    def cleanSolutions(self, solnsList):
+        newList = []
+        for soln in solnsList:
+            newSoln = {'nu':soln['nu'], 'nu~':soln['nu~']}
+            newList.append(newSoln)
+        return newList
 
 
     # Find a single solution within a given range
@@ -473,23 +480,23 @@ class NuSolver(object):
             oneOrTwo = 1
             self.initFunc(1)
             self.seekSolution(1)
-            self.allResultsList.extend(self.resultsListOne)
+            self.allResultsList.extend(self.cleanSolutions(self.resultsListOne))
             return True
         elif self.funcInitialized[0] and not self.funcDone[0]:
             oneOrTwo = 1
             self.seekSolution(1)
-            self.allResultsList.extend(self.resultsListOne)
+            self.allResultsList.extend(self.cleanSolutions(self.resultsListOne))
             return True
         elif not self.funcInitialized[1]:
             oneOrTwo = 2
             self.initFunc(2)
             self.seekSolution(2)
-            self.allResultsList.extend(self.resultsListTwo)
+            self.allResultsList.extend(self.cleanSolutions(self.resultsListTwo))
             return True
         elif self.funcInitialized[1] and not self.funcDone[1]:
             oneOrTwo = 2
             self.seekSolution(2)
-            self.allResultsList.extend(self.resultsListTwo)
+            self.allResultsList.extend(self.cleanSolutions(self.resultsListTwo))
             return True
         else:
             # all done
@@ -510,6 +517,6 @@ class NuSolver(object):
         self.talk("solutions for func 2: ")
         for sol in self.resultsListTwo:
             self.talk("\t{0}".format(sol))
-        self.allResultsList.extend(self.resultsListOne)
-        self.allResultsList.extend(self.resultsListTwo)
+        self.allResultsList.extend(self.cleanSolutions(self.resultsListOne))
+        self.allResultsList.extend(self.cleanSolutions(self.resultsListTwo))
         return self.allResultsList
